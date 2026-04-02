@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заказы</title>
+</head>
+<body>
+    <h1>Список заказов</h1>
+    <a href="{% url 'order_create' %}">+ Новый заказ</a>
+    <ul>
+        {% for order in orders %}
+        <li>
+            Заказ #{{ order.id }} — {{ order.client.name }} — {{ order.product }} — {{ order.quantity }} шт — {{ order.total_price }} ₽
+            <a href="{% url 'order_detail' order.id %}">(детали)</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
